@@ -63,7 +63,7 @@ FROM relations
 JOIN products ON relations.id_products = products.id
 JOIN attributes ON relations.id_attributes = attributes.id
 JOIN attributes_values ON relations.id_attributes_values = attributes_values.id
-WHERE products.name = 'Шапка' AND attributes_values.value = 'Зеленый' AND attributes.name = 'цвет'  AND attributes_values.size >= 35;
+WHERE products.name = 'Шапка' AND attributes_values.value = 'Зеленый' AND attributes.name = 'цвет'  AND attributes_values.size >= 40 OR products.name = 'Шарф' AND attributes_values.value = 'Зеленый' AND attributes.name = 'цвет'  AND attributes_values.size >= 35
 
 
 
