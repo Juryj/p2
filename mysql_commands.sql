@@ -58,12 +58,13 @@ GROUP BY attributes_values.`value` = 'Красный'
  
 //Написать SQL-запрос для выборки Шарфа зеленого цвета и Шапки размера >= 40.   
  
-SELECT products.name, attributes.name, attributes_values.value, attributes_values.size
+SELECT products.name, attributes.name, attributes_values.value
 FROM relations 
 JOIN products ON relations.id_products = products.id
 JOIN attributes ON relations.id_attributes = attributes.id
 JOIN attributes_values ON relations.id_attributes_values = attributes_values.id
-WHERE products.name = 'Шапка' AND attributes_values.value = 'Зеленый' AND attributes.name = 'цвет'  AND attributes_values.size >= 40 OR products.name = 'Шарф' AND attributes_values.value = 'Зеленый' AND attributes.name = 'цвет'  AND attributes_values.size >= 35
+WHERE (products.name = 'Шарф' AND attributes_values.value = 'Зеленый' AND attributes.name = 'Цвет') OR (products.name = 'Шапка' AND attributes.name = 'Размер' AND attributes_values.value >= 40);
+
 
 
 

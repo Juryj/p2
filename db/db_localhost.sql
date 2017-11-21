@@ -11,7 +11,7 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 20/11/2017 12:02:51
+ Date: 21/11/2017 21:51:21
 */
 
 SET NAMES utf8mb4;
@@ -26,12 +26,13 @@ CREATE TABLE `attributes`  (
   `name` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of attributes
 -- ----------------------------
 INSERT INTO `attributes` VALUES (1, 'Цвет');
+INSERT INTO `attributes` VALUES (2, 'Размер');
 
 -- ----------------------------
 -- Table structure for attributes_values
@@ -40,16 +41,18 @@ DROP TABLE IF EXISTS `attributes_values`;
 CREATE TABLE `attributes_values`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `value` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `size` double(10, 0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of attributes_values
 -- ----------------------------
-INSERT INTO `attributes_values` VALUES (1, 'Зеленый', 40);
-INSERT INTO `attributes_values` VALUES (2, 'Красный', 40);
-INSERT INTO `attributes_values` VALUES (3, 'Синий', 35);
+INSERT INTO `attributes_values` VALUES (1, 'Зеленый');
+INSERT INTO `attributes_values` VALUES (2, 'Красный');
+INSERT INTO `attributes_values` VALUES (3, 'Синий');
+INSERT INTO `attributes_values` VALUES (4, '40');
+INSERT INTO `attributes_values` VALUES (5, '41');
+INSERT INTO `attributes_values` VALUES (6, '42');
 
 -- ----------------------------
 -- Table structure for products
@@ -87,8 +90,12 @@ CREATE TABLE `relations`  (
 -- ----------------------------
 -- Records of relations
 -- ----------------------------
-INSERT INTO `relations` VALUES (1, 1, 1);
+INSERT INTO `relations` VALUES (1, 2, 4);
 INSERT INTO `relations` VALUES (2, 1, 1);
+INSERT INTO `relations` VALUES (1, 2, 1);
 INSERT INTO `relations` VALUES (1, 1, 2);
+INSERT INTO `relations` VALUES (1, 1, 3);
+INSERT INTO `relations` VALUES (1, 2, 5);
+INSERT INTO `relations` VALUES (1, 2, 6);
 
 SET FOREIGN_KEY_CHECKS = 1;
